@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --gold: #d4a94f;
+  --gold-dark: #b9852d;
+  --dark: #111827;
+  --muted: #6b7280;
+  --panel: rgba(255,255,255,0.82);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Cairo', 'Poppins', sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(212,169,79,0.08), transparent 22%),
+    linear-gradient(180deg, #f8fafc 0%, #f3f4f6 100%);
+  color: #1f2937;
+}
+
+.glass {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.luxury-card {
+  background: var(--panel);
+  border: 1px solid rgba(148,163,184,0.18);
+  box-shadow: 0 18px 45px rgba(15,23,42,0.08);
+}
+
+.gold-bg { background: var(--gold); }
+.gold-ring { box-shadow: 0 0 0 3px rgba(212,169,79,0.2); }
+
+.hero-shimmer {
+  background:
+    linear-gradient(120deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02)),
+    linear-gradient(120deg, #b77d1a 0%, #d4a94f 35%, #8b5e18 100%);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #d4a94f, #b9852d);
+  color: white;
+  box-shadow: 0 12px 24px rgba(212,169,79,0.3);
+}
+
+.tab-btn:not(.active) {
+  background: rgba(255,255,255,0.7);
+  color: #1f2937;
+}
+
+.product-image {
+  background:
+    linear-gradient(135deg, rgba(15,23,42,0.05), rgba(212,169,79,0.12)),
+    linear-gradient(135deg, #e2e8f0, #f8fafc);
+}
+
+.floating-badge {
+  animation: float 4s ease-in-out infinite;
+}
+
+.modal-backdrop {
+  background: rgba(15, 23, 42, 0.6);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}

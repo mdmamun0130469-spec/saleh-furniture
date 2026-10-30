@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saleh Furniture | Premium Showroom</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="antialiased">
+  <div id="app" class="min-h-screen flex flex-col">
+    <header class="sticky top-0 z-50 bg-slate-900/95 glass text-white shadow-lg">
+      <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full gold-bg flex items-center justify-center text-slate-900 font-black text-lg gold-ring">
+            SF
+          </div>
+          <div>
+            <h1 class="text-lg md:text-xl font-black tracking-wide">Saleh Furniture</h1>
+            <p class="text-[10px] md:text-xs text-amber-400">ساحة فرنيتشير • الرياض</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 md:gap-3">
+          <span id="roleBadge" class="bg-amber-500 text-slate-900 text-[10px] md:text-xs px-3 py-1 rounded-full font-bold shadow-sm">Guest Mode</span>
+          <a href="https://wa.me/966500000000" target="_blank" class="bg-green-600 hover:bg-green-700 transition text-white px-3 py-2 rounded-xl text-[10px] md:text-xs font-bold flex items-center gap-1 shadow">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 md:px-6 py-6 w-full flex-grow">
+      <section class="hero-shimmer rounded-[28px] p-6 md:p-8 text-white shadow-2xl mb-8 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_35%)]"></div>
+        <div class="relative flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="text-center md:text-right">
+            <div class="inline-block mb-3 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-semibold">
+              Luxury Interiors • Since 1985
+            </div>
+            <h2 class="text-3xl md:text-5xl font-black leading-tight">أهلاً بكم في Saleh Furniture</h2>
+            <p class="mt-3 text-amber-100 max-w-xl text-sm md:text-base">
+              أشياء فاخرة، تصاميم أنيقة، وتجربة شراء مميزة في الرياض
+            </p>
+          </div>
+
+          <div class="floating-badge bg-white/10 border border-white/20 rounded-2xl px-4 py-3 text-sm text-white shadow-md">
+            <i class="fas fa-map-marker-alt text-amber-300 ml-1"></i>
+            Riyadh, Saudi Arabia
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <div class="flex gap-2 overflow-x-auto pb-3">
+          <button onclick="switchTab('shop')" id="tabBtn-shop" class="tab-btn active px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap">
+            <i class="fas fa-store ml-1"></i> 쇼룸 / Products
+          </button>
+          <button onclick="switchTab('customizer')" id="tabBtn-customizer" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap">
+            <i class="fas fa-couch ml-1"></i> ۳ডি কনফিগুরেটর / 3D Config
+          </button>
+          <button onclick="switchTab('orders')" id="tabBtn-orders" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap">
+            <i class="fas fa-clipboard-list ml-1"></i> অর্ডার ও ইনভয়েস / Orders
+          </button>
+          <button onclick="switchTab('admin')" id="tabBtn-admin" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap">
+            <i class="fas fa-shield-alt ml-1"></i> এডমিন প্যানেল / Admin
+          </button>
+        </div>
+      </section>
+
+      <section id="tab-shop" class="tab-content">
+        <div class="mb-4 flex items-center justify-between">
+          <h3 class="text-2xl font-black">Featured Collection</h3>
+          <span class="text-sm text-slate-500">Luxury living • Made for Riyadh</span>
+        </div>
+
+        <div id="catalogGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+      </section>
+
+      <section id="tab-customizer" class="tab-content hidden">
+        <div class="max-w-3xl mx-auto luxury-card rounded-[30px] p-6 md:p-8">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl md:text-3xl font-black">Interactive 3D Furniture Configurator</h3>
+            <span class="bg-amber-50 text-amber-700 px-3 py-1 rounded-full text-xs font-bold">Live Estimate</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="space-y-5">
+              <div>
+                <label class="block text-sm font-bold mb-2">কাঠের রঙ নির্বাচন করুন / Wood Finish:</label>
+                <select id="configWood" class="w-full p-3 border rounded-xl bg-slate-50 text-sm">
+                  <option value="Dark Walnut">Dark Walnut (ডার্ক ওয়ালনাট)</option>
+                  <option value="Glossy Cream">Glossy Cream (গ্লসি ক্রিম)</option>
+                  <option value="Natural Oak">Natural Oak (ন্যাচারাল ওক)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-sm font-bold mb-2">সাইজ / Size Dimensions:</label>
+                <select id="configSize" class="w-full p-3 border rounded-xl bg-slate-50 text-sm">
+                  <option value="200cm x 220cm">200cm x 220cm (Standard)</option>
+                  <option value="250cm x 220cm">250cm x 220cm (Large)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 flex flex-col justify-between">
+              <div>
+                <p class="text-xs text-amber-800 font-bold uppercase">Estimated Price</p>
+                <div class="mt-4 text-4xl font-black text-amber-700" id="configPrice">SAR 3,500</div>
+              </div>
+              <div class="mt-6">
+                <p class="text-xs text-slate-500">Includes finish, size, and design customization.</p>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="submitCustomConfig()" class="mt-8 w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 transition text-white py-3 rounded-2xl font-black shadow-lg">
+            <i class="fab fa-whatsapp ml-1"></i> WhatsApp-এ কোটেশন পাঠান
+          </button>
+        </div>
+      </section>
+
+      <section id="tab-orders" class="tab-content hidden">
+        <div class="grid grid-cols-1 xl:grid-cols-[1.3fr_0.7fr] gap-6">
+          <div class="luxury-card rounded-[30px] p-6 md:p-8">
+            <div class="mb-6 flex items-center justify-between">
+              <h3 class="text-2xl font-black">Current Order & Invoices</h3>
+              <span class="text-sm text-slate-500">Review and manage cart</span>
+            </div>
+
+            <div id="orderList" class="space-y-3 mb-5">
+              <p class="text-sm text-slate-500">কোনো নতুন অর্ডার যুক্ত করা হয়নি। শোরুম থেকে পণ্য সিলেক্ট করুন।</p>
+            </div>
+
+            <div id="invoiceTotal" class="hidden border-t pt-4">
+              <div class="text-xl font-black text-right">
+                মোট: <span id="totalAmount" class="text-amber-600">SAR 0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="luxury-card rounded-[30px] p-6">
+            <h3 class="text-xl font-black mb-4">Customer Checkout</h3>
+
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-bold mb-1">Customer Name</label>
+                <input id="customerName" type="text" class="w-full p-3 border rounded-xl bg-slate-50" placeholder="Your name" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-bold mb-1">Phone Number</label>
+                <input id="customerPhone" type="tel" class="w-full p-3 border rounded-xl bg-slate-50" placeholder="+966 5xx xxx xxx" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-bold mb-1">City / Area</label>
+                <input id="customerCity" type="text" class="w-full p-3 border rounded-xl bg-slate-50" placeholder="Riyadh / Khobar / Jeddah" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-bold mb-1">Delivery Notes</label>
+                <textarea id="customerNotes" rows="3" class="w-full p-3 border rounded-xl bg-slate-50" placeholder="Optional notes..."></textarea>
+              </div>
+
+              <button onclick="submitCheckout()" class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 transition text-white py-3 rounded-xl font-black shadow">
+                <i class="fab fa-whatsapp ml-1"></i> Send Order to WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-admin" class="tab-content hidden">
+        <div id="adminLoginPanel" class="max-w-md mx-auto luxury-card rounded-[30px] p-6 md:p-8 text-center">
+          <h3 class="text-2xl font-black mb-2">Admin & Staff Security Portal</h3>
+          <p class="text-xs text-slate-500 mb-6">মালিক ও স্টাফদের জন্য আলাদা সিকিউরিটি পিন কোড দিয়ে লগইন করুন।</p>
+
+          <div class="space-y-4">
+            <input type="password" id="pinInput" placeholder="Enter PIN (Admin: 1234, Staff: 0000)" class="w-full p-3 border rounded-xl text-center text-lg tracking-widest bg-slate-50">
+            <button onclick="verifyPin()" class="w-full bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-xl font-bold text-sm shadow">
+              লগইন করুন
+            </button>
+          </div>
+        </div>
+
+        <div id="adminDashboard" class="hidden mt-6 space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="luxury-card rounded-2xl p-4">
+              <div class="text-xs text-slate-500">Total Sales</div>
+              <div class="mt-2 text-2xl font-black">SAR <span id="totalSalesValue">0</span></div>
+            </div>
+            <div class="luxury-card rounded-2xl p-4">
+              <div class="text-xs text-slate-500">Orders</div>
+              <div class="mt-2 text-2xl font-black"><span id="ordersCountValue">0</span></div>
+            </div>
+            <div class="luxury-card rounded-2xl p-4">
+              <div class="text-xs text-slate-500">Inventory</div>
+              <div class="mt-2 text-2xl font-black"><span id="inventoryCountValue">0</span></div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+            <div class="luxury-card rounded-[28px] p-5">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-black">Stock Inventory</h3>
+                <button onclick="showAddProductModal()" class="bg-amber-500 hover:bg-amber-600 text-white px-3 py-2 rounded-xl text-xs font-bold">Add Product</button>
+              </div>
+
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead class="text-slate-500">
+                    <tr>
+                      <th class="text-right pb-3">Product</th>
+                      <th class="text-right pb-3">Stock</th>
+                      <th class="text-right pb-3">Price</th>
+                      <th class="text-right pb-3">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="inventoryTable" class="text-slate-700"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="luxury-card rounded-[28px] p-5">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-black">Recent Orders</h3>
+                <button onclick="clearOrders()" class="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-xl text-xs font-bold">Clear</button>
+              </div>
+              <div id="recentOrdersList" class="space-y-3"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-slate-900 text-white py-5 text-center text-xs text-slate-400 border-t border-slate-800">
+      <p>© 2026 Saleh Furniture. All rights reserved. Riyadh, KSA.</p>
+    </footer>
+  </div>
+
+  <div id="productModal" class="fixed inset-0 hidden items-center justify-center modal-backdrop z-50 p-4">
+    <div class="luxury-card rounded-[28px] p-6 w-full max-w-md">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-xl font-black">Add / Edit Product</h3>
+        <button onclick="closeProductModal()" class="text-slate-500 text-lg">✕</button>
+      </div>
+
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-bold mb-1">Product Name</label>
+          <input id="modalProductName" type="text" class="w-full p-3 border rounded-xl bg-slate-50" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-bold mb-1">Stock</label>
+          <input id="modalProductStock" type="number" min="0" class="w-full p-3 border rounded-xl bg-slate-50" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-bold mb-1">Price</label>
+          <input id="modalProductPrice" type="number" min="0" class="w-full p-3 border rounded-xl bg-slate-50" />
+        </div>
+
+        <div class="flex gap-3">
+          <button onclick="saveProduct()" class="flex-1 bg-amber-500 hover:bg-amber-600 text-white py-3 rounded-xl font-bold">Save</button>
+          <button onclick="closeProductModal()" class="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-800 py-3 rounded-xl font-bold">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
